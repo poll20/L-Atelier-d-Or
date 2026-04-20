@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500&display=swap');
+@import "tailwindcss";
+
+/* ===== Theme Variables (IMPORTANT for v4) ===== */
+:root {
+  --surface: #fcf9f6;
+  --on-surface: #1c1c1a;
+  --primary: #5f5e5e;
+  --secondary: #775a19;
+  --outline: #7f7667;
+}
+
+/* ===== Tailwind Theme Mapping ===== */
+@theme {
+  --font-sans: "Inter", sans-serif;
+  --font-serif: "Instrument Serif", serif;
+
+  --color-surface: var(--surface);
+  --color-on-surface: var(--on-surface);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-outline: var(--outline);
+}
+
+/* ===== Base Styles ===== */
+body {
+  background-color: var(--color-surface);
+  color: var(--color-on-surface);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+.serif-italic {
+  font-family: var(--font-serif);
+  font-style: italic;
+}
+
+/* ===== Components ===== */
+.luxury-button-primary {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(95, 94, 94, 0.2);
+  color: var(--color-on-surface);
+  padding: 1rem 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  font-size: 10px;
+  transition: all 0.5s ease;
+}
+
+.luxury-button-primary:hover {
+  background: var(--color-primary);
+  color: white;
+}
+
+.luxury-button-outline {
+  background: transparent;
+  border: 1px solid var(--color-secondary);
+  color: var(--color-secondary);
+  padding: 1rem 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  font-size: 10px;
+  transition: all 0.5s ease;
+}
+
+.luxury-button-outline:hover {
+  background: var(--color-secondary);
+  color: white;
+}
+
+.glass-nav {
+  background: rgba(252, 249, 246, 0.8);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(127, 118, 103, 0.2);
+}
+
+.bento-item {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* ⚠️ group-hover CSS me nahi chalega → JSX me use kar */
+.bento-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1s;
+}
+
+.section-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: var(--color-secondary);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+/* ===== Utilities ===== */
+.tracking-luxury {
+  letter-spacing: 0.25em;
+}
+
+.tracking-label {
+  letter-spacing: 0.15em;
+}
+
+/* ===== Scroll ===== */
+html {
+  scroll-behavior: auto; /* Required for Lenis */
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-surface);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(127, 118, 103, 0.2);
+  transition: background 0.3s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(127, 118, 103, 0.4);
+}
+
+/* ===== Lenis Smooth Scroll Support ===== */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
